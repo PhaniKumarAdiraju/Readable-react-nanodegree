@@ -20,7 +20,7 @@ class CommentEdit extends Component{
             body:  e.target.body.value
         }
         if (comment.body === "") {
-            alert('Comment body cannot be empty')
+           // alert('Comment body cannot be empty')
         } else {
             this.props.updateComment(comment,
                 () => this.props.history.push(`/post/${comment.postId}`))

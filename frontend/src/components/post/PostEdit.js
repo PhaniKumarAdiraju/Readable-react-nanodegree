@@ -19,7 +19,7 @@ class PostEdit extends Component{
         const title = e.target.title.value
 
         if(title === "" || body === "" ) {
-            alert("Body and title are mandatory")
+          //  alert("Body and title are mandatory")
         } else {
             this.props.updatePost(postId, title, body,
                 () => this.props.history.push('/'))

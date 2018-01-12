@@ -17,7 +17,6 @@ class Post extends Component {
     onDeletePost = () => {
         const id = this.props.post.id
         this.props.deletePost(id, () => {
-            this.props.history.push('/')
         })
     }
 

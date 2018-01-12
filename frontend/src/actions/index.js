@@ -44,16 +44,6 @@ export const fetchPostsByCategory = (category) => {
         })
     }
 }
-export const getPost = (postId) => {
-    console.log("postid: ", postId)
-    return (dispatch) => {
-        API.getPost(postId)
-            .then(post => {
-            dispatch({ type: Types.GET_POST, post })
-                console.log("got: ", post)
-        })
-    }
-}
 export const fetchAllPosts = () => {
     return (dispatch) => {
         API.fetchPosts().then(posts => {

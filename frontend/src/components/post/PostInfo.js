@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import PostComment from '../comment/CommentPost'
-import { fetchAllPosts, votePost, deletePost, fetchCommentForPost,getPost } from '../../actions/index'
+import { fetchAllPosts, votePost, deletePost, fetchCommentForPost } from '../../actions/index'
 import Like from '../../images/like.png'
 import Dislike from '../../images/dislike.png'
 import { formatTimeStamp } from '../../utils/Extras'
@@ -12,14 +12,13 @@ import { formatTimeStamp } from '../../utils/Extras'
 class PostInfo extends Component{
 
     componentDidMount() {
-        console.log("all: ", this.props.fetchAllPosts)
-        this.props.fetchAllPosts
+        this.props.fetchAllPosts()
         this.props.fetchCommentForPost(this.props.match.params.postId)
-        console.log("post: ", this.props.getPost(this.props.match.params.postId))
     }
 
     onDeletePost = () => {
         const id = this.props.match.params.postId
+        console.log("delete post: ", this.props.getPost(this.props.match.params.postId))
         this.props.deletePost(id, () => {
             this.props.history.push('/')
         })
@@ -113,4 +112,4 @@ function mapStateToProps({ posts, comments }, { match }) {
     }
 }
 
-export default connect(mapStateToProps, {fetchCommentForPost, fetchAllPosts, deletePost, votePost, getPost})(PostInfo)
+export default connect(mapStateToProps, {fetchCommentForPost, fetchAllPosts, deletePost, votePost})(PostInfo)

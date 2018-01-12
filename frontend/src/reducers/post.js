@@ -19,12 +19,6 @@ function posts(state=[], action) {
             return posts.filter(post => !(post.deleted))
         case Types.FETCH_POSTS:
             return action.posts.filter(post => !(post.deleted))
-        case Types.GET_POST:
-            return state.map(post => {
-                if(post.id === postId) {
-                }
-                return post
-            })
         case Types.SORT_POST:
             return [].concat(state.sort(sortBy("-"+sortKey)))
         case Types.VOTE_POST:
